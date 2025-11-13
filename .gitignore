@@ -1,0 +1,88 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### ✅ HASSİS BİLGİLER - GİTHUB'A PUSHLANMAMALI ###
+# Application Properties (Veritabanı şifresi içeriyor)
+src/main/resources/application.properties
+src/main/resources/application-*.properties
+application.properties
+application-*.properties
+
+# Environment Variables
+.env
+.env.local
+.env.production
+.env.development
+
+# Logs
+*.log
+logs/
+*.gz
+
+### ✅ MAVEN / BUILD DOSYALARI ###
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.properties
+mvnw
+mvnw.cmd
+
+# Compiled class files
+*.class
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+### ✅ MACOS / WINDOWS ###
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+
+### ✅ TEMPORARY FILES ###
+*.tmp
+*.bak
+*.swp
+*~.nib
