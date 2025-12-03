@@ -80,6 +80,7 @@ public class UserService {
             user.getName(),
             user.getEmail(),
             user.getPhone(),
+            user.getIsAdmin() != null ? user.getIsAdmin() : false, // ✅ Admin flag eklendi
             user.getCreatedAt().format(formatter)
         );
     }

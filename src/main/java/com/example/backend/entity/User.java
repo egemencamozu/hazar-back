@@ -21,7 +21,12 @@ public class User {
     @Column(nullable = false)
     private String name;
     
+    @Column(nullable = false)
     private String phone;
+    
+    // ✅ Admin role eklendi
+    @Column(name = "is_admin")
+    private Boolean isAdmin = false;
     
     @Column(name = "created_at")
     private LocalDateTime createdAt;

@@ -95,7 +95,6 @@ public class ProductService {
             return ApiResponse.error("Ürün bulunamadı");
         }
 
-        // ✅ Long.parseLong kaldırıldı - direkt String karşılaştırma
         if (!product.getOwnerId().equals(userId)) {
             return ApiResponse.error("Bu ürünü düzenleme yetkiniz yok");
         }
@@ -104,7 +103,11 @@ public class ProductService {
         product.setDescription(request.getDescription());
         product.setImageUrl(request.getImageUrl());
         product.setCategory(request.getCategory());
-        product.setIsAvailable(request.getIsAvailable());
+        
+        // ✅ isAvailable null kontrolü
+        if (request.getIsAvailable() != null) {
+            product.setIsAvailable(request.getIsAvailable());
+        }
 
         Product updatedProduct = productRepository.save(product);
         
@@ -128,6 +131,31 @@ public class ProductService {
         productRepository.delete(product);
         
         return ApiResponse.success("Ürün silindi", null);
+    }
+
+    // ✅ ADMIN: Tüm ürünleri listele (müsait olsun olmasın)
+    public ApiResponse<List<ProductResponse>> getAllProductsIncludingUnavailable() {
+        List<Product> products = productRepository.findAll();
+        List<ProductResponse> responses = products.stream()
+            .map(this::convertToResponse)
+            .collect(Collectors.toList());
+        
+        return ApiResponse.success(responses);
+    }
+
+    // ✅ ADMIN: İstediği ürünü sil (owner kontrolü yok)
+    @Transactional
+    public ApiResponse<Void> adminDeleteProduct(Long id) {
+        Product product = productRepository.findById(id)
+            .orElse(null);
+
+        if (product == null) {
+            return ApiResponse.error("Ürün bulunamadı");
+        }
+
+        productRepository.delete(product);
+        
+        return ApiResponse.success("Ürün admin tarafından silindi", null);
     }
 
     private ProductResponse convertToResponse(Product product) {

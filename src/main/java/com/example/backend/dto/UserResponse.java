@@ -12,5 +12,6 @@ public class UserResponse {
     private String name;
     private String email;
     private String phone;
+    private Boolean isAdmin; // ✅ Admin flag eklendi
     private String createdAt;
 }

@@ -82,6 +82,16 @@ public class MessageService {
         return ApiResponse.success(count);
     }
 
+    // ✅ ADMIN: Tüm mesajları listele
+    public ApiResponse<List<MessageResponse>> getAllMessagesForAdmin() {
+        List<Message> messages = messageRepository.findAll();
+        List<MessageResponse> responses = messages.stream()
+            .map(this::convertToResponse)
+            .collect(Collectors.toList());
+        
+        return ApiResponse.success(responses);
+    }
+
     private MessageResponse convertToResponse(Message message) {
         return new MessageResponse(
             message.getId(),
