@@ -26,8 +26,17 @@ public class SwaggerConfig {
                         .license(new License()
                                 .name("MIT License")
                                 .url("https://opensource.org/licenses/MIT")))
+                // BURAYI GÜNCELLEDİK:
                 .servers(List.of(
-                        new Server().url("http://localhost:8080").description("Development server")
+                        // 1. Azure Sunucusu (Varsayılan olarak bu seçili gelir)
+                        new Server()
+                                .url("https://hazar-b9hzdcdwbjdneaga.canadacentral-01.azurewebsites.net")
+                                .description("Azure Production Server"),
+                        
+                        // 2. Localhost (Kendi bilgisayarında geliştirme yaparken kullanırsın)
+                        new Server()
+                                .url("http://localhost:8080")
+                                .description("Local Development")
                 ));
     }
 }
