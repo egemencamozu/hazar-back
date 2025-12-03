@@ -25,7 +25,7 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Maven
-         run: mvn clean install
+        run: mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -50,5 +50,4 @@ jobs:
           app-name: 'hazar'
           slot-name: 'Production'
           package: '*.jar'
-
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_61669725339149C1A8A0712494934440 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D371F73209E344F8AB6CB1A063EA73F9 }}
