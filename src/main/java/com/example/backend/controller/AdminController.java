@@ -19,7 +19,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/admin")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Admin", description = "Admin operations for managing products, users and messages")
 public class AdminController {
     private final ProductService productService;

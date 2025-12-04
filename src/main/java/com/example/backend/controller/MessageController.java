@@ -18,7 +18,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/messages")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Messages", description = "Message and conversation management operations")
 public class MessageController {
     private final MessageService messageService;
